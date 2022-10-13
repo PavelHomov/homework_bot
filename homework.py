@@ -83,7 +83,7 @@ def get_api_answer(current_timestamp):
 
 
 def check_response(response):
-    """Проверяет ответ API на корректность. """
+    """Проверяет ответ API на корректность."""
     if type(response) == list:
         response = response[0]
     if type(response) != dict:
@@ -123,7 +123,7 @@ def parse_status(homework):
 
 
 def check_tokens():
-    """Проверяет доступность переменных окружения"""
+    """Проверяет доступность переменных окружения."""
     tokens_bool = True
     is_exists = [PRACTICUM_TOKEN, TELEGRAM_TOKEN, TELEGRAM_CHAT_ID]
     for token in is_exists:
