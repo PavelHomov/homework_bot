@@ -28,7 +28,7 @@ formatter = logging.Formatter(
     '%(asctime)s, %(levelname)s, %(message)s'
 )
 handler = logging.StreamHandler(
-    stream=stdout
+    stream=sys.stdout
 )
 handler.setFormatter(formatter)
 logger.addHandler(handler)
