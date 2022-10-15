@@ -1,7 +1,3 @@
-class VariableNotExists(Exception):
-    """Отсутствует обязательная переменная."""
-
-
 class WrongHTTPStatusCode(Exception):
     """Ответ не равен 200."""
 
