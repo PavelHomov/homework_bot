@@ -1,8 +1,8 @@
 import logging
 import os
+import sys
 import time
 from http import HTTPStatus
-from sys import stdout, exit
 
 import requests
 import telegram
