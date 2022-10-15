@@ -2,7 +2,7 @@ import logging
 import os
 import time
 from http import HTTPStatus
-from sys import stdout
+from sys import stdout, exit
 
 import requests
 import telegram
@@ -42,7 +42,7 @@ HOMEWORK_STATUSES = {
 
 def send_message(bot, message):
     """Отправляет сообщение с статусом обработки домашки."""
-    logger.info(f'Бот начинает отправку сообщения')
+    logger.info('Бот начинает отправку сообщения')
     try:
         bot.send_message(
             chat_id=TELEGRAM_CHAT_ID,
@@ -57,7 +57,7 @@ def get_api_answer(current_timestamp):
     """Делает запрос к эндпоинту Практикум.Домашка."""
     timestamp = current_timestamp or int(time.time())
     params = {'from_date': timestamp}
-    logger.info(f'Бот начинает подключение к API')
+    logger.info('Бот начинает подключение к API')
     try:
         response = requests.get(
             url=ENDPOINT,
