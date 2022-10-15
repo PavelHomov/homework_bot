@@ -122,7 +122,7 @@ def main():
     if not check_tokens():
         message = 'Отсутствуют важные переменные!'
         logger.critical(message)
-        raise sys.exit(message)
+        sys.exit(message)
     bot = telegram.Bot(token=TELEGRAM_TOKEN)
     current_timestamp = int(time.time())
     last_error = ''
