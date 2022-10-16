@@ -2,7 +2,7 @@ class WrongHTTPStatusCode(Exception):
     """Ответ не равен 200."""
 
 
-class APIResponseIsNotDict(Exception):
+class APIResponseIsNotDict(TypeError):
     """Ответ не является списком."""
 
 

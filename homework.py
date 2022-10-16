@@ -77,8 +77,6 @@ def get_api_answer(current_timestamp):
 
 def check_response(response):
     """Проверяет ответ API на корректность."""
-    if type(response) == list:
-        response = response[0]
     if not isinstance(response, dict):
         message = f'Ответ пришел в некорректном формате: {response}'
         raise APIResponseIsNotDict(message)
@@ -89,7 +87,7 @@ def check_response(response):
     if 'current_date' not in response:
         message = 'В ответе отсутствуют ключи'
         raise APIResponseIsIncorrect(message)
-    if isinstance(homeworks, list) is False:
+    if not isinstance(homeworks, list):
         message = 'Неправильное значение домашней работы'
         raise HomeworkValueIncorrect(message)
 
@@ -102,6 +100,9 @@ def parse_status(homeworks):
     homework_status = homeworks.get('status')
     if homework_name is None:
         message = 'Отсутствует имя домашней работы'
+        raise KeyError(message)
+    if homework_status is None:
+        message = 'Отсутствует статус'
         raise KeyError(message)
     if homework_status not in HOMEWORK_STATUSES:
         message = ('недокументированный статус домашней работы ,'
